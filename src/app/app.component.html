@@ -1,22 +1,45 @@
 <div class="container py-5">
     <div class="row">
         <div class="col-md-12">
-            <h2 class="text-center mb-5">Example ViaCEP (Angular 2.X/4.X)</h2>
+            <h1 class="text-center mb-5">PESQUISA ENDEREÇO</h1>
             <hr class="mb-5">
 
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <div class="card card-outline-secondary">
                         <div class="card-header">
-                            <h3 class="mb-0">ZIP Code</h3>
+                            <h3 class="mb-0">CEP</h3>
                         </div>
                         <div class="card-block">
                             <form class="form" novalidate>
                                 <div class="form-group">
-                                    <input #zipcode class="form-control" id="zipcode" type="text" placeholder="Enter a valid ZIP Code." [(ngModel)]="zipcodeModel" [textMask]="{mask: zipcodeMask, placeholderChar: '\u2000', guide: false }" [ngModelOptions]="{standalone: true}" required="" />
+                                    <input #zipcode class="form-control" id="cep" type="text" placeholder="Entre com o CEP."
+                                     [(ngModel)]="zipcodeModel" [textMask]="{mask: zipcodeMask, placeholderChar: '\u2000', guide: false }"
+                                     [ngModelOptions]="{standalone: true}" required="" />
                                 </div>
-
-                                <button (click)="onClickZipcode(zipcode.value)" type="button" class="btn btn-info btn-lg float-right"><i class="fa fa-search" aria-hidden="true"></i> Find</button>
+                                <button (click)="onClickZipcode(zipcode.value)" type="button" 
+                                class="btn btn-info btn-lg float-right"><i class="fa fa-search" aria-hidden="true"></i> Pesquisar</button>
+                            </form>
+                        </div>
+                        <div class="card-block">
+                            <form class="form2" novalidate>
+                                <div class="form-group">
+                                <input #uf class="form-control" id="uf" type="text" 
+                                    placeholder="Entre com o UF."
+                                     [(ngModel)]="ufModel"
+                                     [ngModelOptions]="{standalone: true}" required="" />
+                                <input #localidade class="form-control" id="localidade" type="text" 
+                                    placeholder="Entre com a Localidade."
+                                     [(ngModel)]="localidadeModel"
+                                     [ngModelOptions]="{standalone: true}" required="" />
+                                <input #logradouro class="form-control" id="logradouro" type="text" 
+                                    placeholder="Entre com o Logradouro."
+                                     [(ngModel)]="logradouroModel"
+                                     [ngModelOptions]="{standalone: true}" required="" />
+                                </div>
+                                <button (click)="onClickUfcode(uf,localidade,logradouro.value)" type="button" 
+                                class="btn btn-info btn-lg float-right">
+                                <i class="fa fa-search" aria-hidden="true"></i> Pesquisar</button>
                             </form>
                         </div>
                     </div>
