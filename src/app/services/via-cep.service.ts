@@ -17,7 +17,6 @@ export class ViaCepService {
   //viacep.com.br/ws/RS/Porto Alegre/Domingos/json/ 
   getAddressByName(uf,localidade,logradouro : string): Observable<Address> {
     return this.httpClient.get<Address>(`https://viacep.com.br/ws/${uf}/${localidade}/${logradouro}/json/`);
+   //return this.httpClient.get<Address>(`https://viacep.com.br/ws/${'RS'}/${'Porto%20Alegre'}/${'Domingos'}/json/`);
   }
-
 }
-
