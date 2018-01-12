@@ -12,6 +12,9 @@ import { Address } from './models/address.model';
 export class AppComponent {
 
   zipcodeModel = '';
+  ufModel = '';
+  localidadeModel = '';
+  logradouroModel = '';
   zipcodeMask = [/[0-9]/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
 
   searchAddress: Address;
@@ -20,7 +23,14 @@ export class AppComponent {
     private toastr: ToastrService,
     private viaCepService: ViaCepService
   ) { }
+  
+  onClickUfcode(uf,localidade,logradouro: string){
+    this.viaCepService.getAddressByName(uf,localidade,logradouro)
+    .subscribe(
 
+    )
+
+  }
   onClickZipcode(zipcode: string) {
     zipcode = zipcode.replace('-', '');
 
@@ -30,7 +40,7 @@ export class AppComponent {
           address => {
             if (address.erro === true) {
               this.searchAddress = undefined;
-              this.toastr.warning('ZIP Code not found.', 'Ops...');
+              this.toastr.warning('CEP não encontrado.', 'Ops...');
             } else {
               this.searchAddress = address;
             }
@@ -41,7 +51,7 @@ export class AppComponent {
           }
         );
     } else {
-      this.toastr.error('Enter a valid ZIP Code.', 'Ops...');
+      this.toastr.error('Entre com um CEP válido.', 'Ops...');
       this.searchAddress = undefined;
     }
   }
