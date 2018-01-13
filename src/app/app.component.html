@@ -22,22 +22,26 @@
                             </form>
                         </div>
                         <div class="card-block">
-                            <form class="form2" novalidate>
+                            <form class="form" novalidate>
                                 <div class="form-group">
+
                                 <input #uf class="form-control" id="uf" type="text" 
                                     placeholder="Entre com o UF."
                                      [(ngModel)]="ufModel"
                                      [ngModelOptions]="{standalone: true}" required="" />
+
                                 <input #localidade class="form-control" id="localidade" type="text" 
                                     placeholder="Entre com a Localidade."
                                      [(ngModel)]="localidadeModel"
                                      [ngModelOptions]="{standalone: true}" required="" />
+
                                 <input #logradouro class="form-control" id="logradouro" type="text" 
                                     placeholder="Entre com o Logradouro."
                                      [(ngModel)]="logradouroModel"
                                      [ngModelOptions]="{standalone: true}" required="" />
                                 </div>
-                                <button (click)="onClickUfcode(uf,localidade,logradouro.value)" type="button" 
+                                
+                                <button (click)="onClickUfcode(uf.value,localidade.value,logradouro.value)" type="button" 
                                 class="btn btn-info btn-lg float-right">
                                 <i class="fa fa-search" aria-hidden="true"></i> Pesquisar</button>
                             </form>
